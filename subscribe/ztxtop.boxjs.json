@@ -1,9 +1,16 @@
 {
   "id": "ztxtop.script.sub",
   "name": "ztxtop 自用脚本订阅",
+  "description": "订阅兼容BoxJs及QX Gallery",
   "author": "@ztxtop",
   "icon": "https://avatars3.githubusercontent.com/u/52337422?s=460&u=0aa6057c2af304d742d20b3b865c34f2902ad5c1&v=4",
   "repo": "https://github.com/ztxtop",
+  "task": [
+    "0 9-21/3 * * * https://raw.githubusercontent.com/ztxtop/x/test/feizao/fqkk.js, tag=番茄看看, img-url=https://ftp.bmp.ovh/imgs/2021/02/f8306006536eb49c.jpeg, enabled=true",
+    "30 10-21/3 * * * https://raw.githubusercontent.com/ztxtop/x/test/feizao/fqkk.js, tag=番茄看看2, img-url=https://ftp.bmp.ovh/imgs/2021/02/f8306006536eb49c.jpeg, enabled=true",
+    "15 9-21/3 * * * https://raw.githubusercontent.com/ztxtop/x/test/feizao/ysm.js, tag=云扫码, img-url=https://s3.ax1x.com/2021/02/28/6CRWb8.jpg, enabled=true",
+    "45 10-21/3 * * * https://raw.githubusercontent.com/ztxtop/x/test/feizao/ysm.js, tag=云扫码2, img-url=https://s3.ax1x.com/2021/02/28/6CRWb8.jpg, enabled=true"
+  ],
   "apps": [{
       "id": "youthCk",
       "name": "中青数据",
@@ -136,8 +143,8 @@
       "script": "https://raw.githubusercontent.com/ztxtop/x/main/youth_banner.js"
     },
     {
-      "id": "kuaishou",
-      "name": "快手极速版",
+      "id": "kuaishouNew",
+      "name": "快手极速版New",
       "author": "@sunert",
       "keys": ["cookie_ks", "cookies_ks"],
       "descs_html": [
@@ -197,6 +204,81 @@
       "repo": "https://gitee.com/Sunert/Scripts/blob/master/Task/NE.cookie.js",
       "icons": ["https://raw.githubusercontent.com/Orz-3/mini/master/Alpha/jd.png", "https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png"],
       "script": "https://raw.githubusercontent.com/ztxtop/x/main/NE.cookie.js"
+    },
+    {
+      "id": "fqkkRead",
+      "name": "番茄看看",
+      "keys": ["fqkk"],
+      "author": "@feizao",
+      "descs_html": [
+        "此优化脚本存储的ck数据结构跟原作者🧼肥皂的不同，需要转换下或重新抓数据",
+        "转换步骤：1、开启‘迁移旧数据’选项并保存设置；2、执行下优化后的脚本即可迁移完数据",
+        "抓包备注：1、脚本已根据ck数据中的账户特征做区分，无需指定抓包账户及账户个数；2、开始阅读并进入文章界面后即可抓到脚本所需的全部数据"
+      ],
+      "settings": [{
+        "id": "fqkkCkMove",
+        "val": "",
+        "name": "迁移旧数据",
+        "type": "boolean",
+        "desc": "开启该选项，执行一次脚本可将原有ck转换为此脚本可用的格式"
+      }, {
+        "id": "fqkkConcurrency",
+        "val": "1",
+        "name": "并发执行账号数",
+        "type": "text",
+        "desc": "默认单账号跑任务，指定大于1的数值时，将并发执行多个账号的任务，请勿设置过大，避免NE工具崩溃（太大估计会崩溃吧）"
+      }, {
+        "id": "fqtx",
+        "name": "提现金额",
+        "val": "100",
+        "type": "number",
+        "desc": "需要自动提现多少，数字为金额的一百倍，如提现0.3元填写30，默认100为提现1元,最低提现额度为0.3元"
+      }, {
+        "id": "fqkk",
+        "name": "CK 列表",
+        "val": "",
+        "type": "textarea",
+        "autoGrow": true,
+        "rows": 8,
+        "desc": "番茄看看CK 列表 (JSON 格式)"
+      }],
+      "repo": "https://github.com/age174/-/blob/main/fqkk.js",
+      "icons": ["https://ftp.bmp.ovh/imgs/2021/02/f8306006536eb49c.jpeg", "https://ftp.bmp.ovh/imgs/2021/02/f8306006536eb49c.jpeg"],
+      "script": "https://raw.githubusercontent.com/age174/-/main/fqkk.js"
+    }, {
+      "id": "ysmRead",
+      "name": "云扫码",
+      "keys": ["ysm"],
+      "author": "@feizao",
+      "descs_html": [
+        "此优化脚本存储的ck数据结构跟原作者🧼肥皂的不同，需要转换下或重新抓数据",
+        "转换步骤：1、开启‘迁移旧数据’选项并保存设置；2、执行下优化后的脚本即可迁移完数据",
+        "抓包备注：1、脚本已根据ck数据中的账户特征做区分，无需指定抓包账户及账户个数；2、开始阅读并进入文章界面后即可抓到脚本所需的全部数据"
+      ],
+      "settings": [{
+        "id": "ysmCkMove",
+        "val": "",
+        "name": "迁移旧数据",
+        "type": "boolean",
+        "desc": "开启该选项，执行一次脚本可将原有ck转换为此脚本可用的格式"
+      }, {
+        "id": "ysmConcurrency",
+        "val": "1",
+        "name": "并发执行账号数",
+        "type": "text",
+        "desc": "默认单账号跑任务，指定大于1的数值时，将并发执行多个账号的任务，请勿设置过大，避免NE工具崩溃（太大估计会崩溃吧）"
+      }, {
+        "id": "ysm",
+        "name": "CK 列表",
+        "val": "",
+        "type": "textarea",
+        "autoGrow": true,
+        "rows": 8,
+        "desc": "云扫码CK 列表 (JSON 格式)"
+      }],
+      "repo": "https://github.com/age174/-/blob/main/ysm.js",
+      "icons": ["https://s3.ax1x.com/2021/02/28/6CRWb8.jpg", "https://s3.ax1x.com/2021/02/28/6CRWb8.jpg"],
+      "script": "https://raw.githubusercontent.com/age174/-/main/ysm.js"
     }
   ]
 }
